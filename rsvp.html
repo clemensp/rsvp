@@ -38,15 +38,45 @@
 
 
       {{#if currentUser}}
-      <h1 id="current_parties">View your Parties</h1>
-      {{> partyList}}
-
+        <h1 id="current_parties">View your Parties</h1>
+        {{> partyList}}
+      {{else}}
+        {{> guestPage}}
       {{/if}}
     </section>
 
   </div>
 </div>
 </body>
+
+<template name="guestPage">
+  {{#if viewInvitation}}
+    {{> invitationDetails}}
+  {{/if}}
+</template>
+
+<template name="invitationDetails">
+  {{#with invitation}}
+    <p>
+      Hello {{inviteeName}}
+    </p>
+    <p>
+      You're invited to {{partyName}}!!
+    </p>
+    <p>
+      Will you be attending?
+      <select class="invitation-status">
+        <option value="pending" {{selected invitationStatus "pending"}}>Undecided</option>
+        <option value="yes" {{selected invitationStatus "yes"}}>Yes</option>
+        <option value="no" {{selected invitationStatus "no"}}>No</option>
+      </select>
+    </p>
+    <p>
+      How many guests are you bringing?
+      <input type="text" class="number-of-guests" value={{numberOfGuests}}></input>
+    </p>
+  {{/with}}
+</template>
 
 <template name="partyList">
   <ul class="party-container">
@@ -83,15 +113,14 @@
   <div class="login-wrap">
   <div class="row">
 
-  <section class id="login_main">
-  <label>
-    <h1>Welcome</h1>
-    <h3>Please specify your invitation code to edit your invitation</h3>
-    <input type="text" id="invitation_id">
-  </label>
-  <button>Go</button>
- 
-  </section>
+    <section class id="login_main">
+      <label>
+        <h1>Welcome</h1>
+        <h3>Please specify your invitation code to edit your invitation</h3>
+        <input type="text" id="invitation_id">
+      </label>
+      <button class="open-invitation">Go</button>
+    </section>
   </div>
   </div>
 </template>

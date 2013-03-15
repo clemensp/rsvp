@@ -20,6 +20,17 @@ Meteor.methods({
     })
   },
 
+  openInvitation: function(invitationCode) {
+    Session.set("invitationCode", invitationCode)
+  },
+
+  updateInvitationStatus: function(invitationCode, newStatus) {
+    Invitations.update({invitationCode: invitationCode},
+                       {
+                         $set: {invitationStatus: newStatus}
+                       })
+  },
+
   generateUUID: function() {
     var s4 = function() {
       return Math.floor((1 + Math.random()) * 0x10000)

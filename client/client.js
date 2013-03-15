@@ -40,3 +40,38 @@ Template.invitationCreation.events({
 Template.invitationList.invitations = function() {
   return Invitations.find({partyName: this.name}).fetch()
 }
+
+Template.openInvitation.events({
+  "click .open-invitation": function(event, template) {
+    var invitationCode = template.find("#invitation_id").value
+    Meteor.call("openInvitation", invitationCode)
+
+    return false
+  }
+})
+
+Template.guestPage.viewInvitation = function() {
+  return Session.get("invitationCode")
+}
+
+Template.invitationDetails.invitation = function() {
+  var invitationCode = Session.get("invitationCode")
+  return Invitations.findOne({invitationCode: invitationCode})
+}
+
+Template.invitationDetails.events({
+  "change .invitation-status": function(event, template) {
+    var newStatus = event.target.value
+    Meteor.call("updateInvitationStatus", Session.get("invitationCode"), newStatus)
+    return false
+  },
+
+  "blur .number-of-guests": function(event, template) {
+    console.log("number of guests blurred", this)
+  }
+})
+
+
+Handlebars.registerHelper("selected", function(selectedValue, optionValue) {
+  return optionValue === selectedValue ? " selected" : "";
+})
