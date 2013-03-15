@@ -3,12 +3,19 @@
 </head>
 
 <body>
-<h1>Admin</h1>
+{{loginButtons align="right"}}
 
-<h2>Parties</h2>
-{{> partyList}}
-<hr />
-{{> partyCreation}}
+{{#if currentUser}}
+  <h1>Admin</h1>
+
+  <h2>Parties</h2>
+  {{> partyList}}
+  <hr />
+  {{> partyCreation}}
+{{else}}
+  Please login...
+{{/if}}
+
 </body>
 
 <template name="partyList">
