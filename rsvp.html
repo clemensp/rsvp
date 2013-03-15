@@ -2,8 +2,6 @@
   <title>rsvp</title>
   <link href='http://fonts.googleapis.com/css?family=Old+Standard+TT:400' rel='stylesheet' type='text/css'>
   <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
-
-
 </head>
 
 <body>
@@ -17,29 +15,21 @@
   </div>
 </div>
 
-
-
-
-
-
 <div class="login-wrap">
   <div class="row">
 
-  <section class id="login_main">
+    <section class id="login_main">
 
-  {{#if currentUser}}
-    {{> partyCreation}}
+      {{#if currentUser}}
+      {{> partyCreation}}
 
-    {{else}}
-    {{> openInvitation}}
-  {{/if}}
- 
-  </section>
+      {{else}}
+      {{> openInvitation}}
+      {{/if}}
+
+    </section>
   </div>
-  </div>
-
-
-
+</div>
 
 <div class="content-main-wrap">
   <div class="row">
@@ -115,22 +105,27 @@
     <ul class="details">
       <li>Name: {{name}}</li>
     </ul>
+
+    <h3>Invitation List</h3>
+    {{> invitationList}}
+    {{> invitationCreation}}
+  </section>
 </template>
 
 <template name="invitationList">
   <ul>
     {{#each invitations}}
     <li>{{inviteeName}}</li>
-    <li>{{inviteCode}}</li>
+    <li>{{invitationCode}}</li>
     <li>{{numberOfGuests}}</li>
-    <li>{{party}}</li>
+    <li>{{invitationStatus}}</li>
     {{/each}}
   </ul>
 </template>
 
 <template name="invitationCreation">
   <form id="invitation-creation">
-    <label>Name:
+    <label>Invitee Name:
       <input type="text" class="invitee-name"></input>
     </label>
     <button class="create">Create invitation</button>
