@@ -3,7 +3,27 @@
 </head>
 
 <body>
+
+<div class="admin-nav-wrap">
+<div class="row">
+
+<section class="small-12 push-10" id="admin_nav">
 {{loginButtons align="right"}}
+</section>
+</div>
+</div>
+
+{{#if true}}
+{{> openInvitation}}
+{{/if}}
+
+
+
+<div class="content-main-wrap">
+<div class="row">
+
+<section class id="content_main">
+
 
 {{#if currentUser}}
   <h1>Admin</h1>
@@ -16,6 +36,11 @@
   Please login...
 {{/if}}
 
+Test Test Test Test
+</section>
+
+</div>
+</div>
 </body>
 
 <template name="partyList">
@@ -33,4 +58,23 @@
     </label>
     <button class="create">Create Party</button>
   </form>
+</template>
+
+
+<template name="openInvitation">
+
+  <div class="login-wrap">
+  <div class="row">
+
+  <section class id="login_main">
+
+  <h1>Welcome</h1>
+  <h3>Please specify your invitation code to edit your invitation</h3>
+  <input type="text" id="invitation_id">
+  <button class="button">Go</button>
+ 
+  </section>
+  </div>
+  </div>
+
 </template>

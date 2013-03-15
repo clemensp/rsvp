@@ -1,0 +1,51 @@
+/* CSS declarations go here */
+
+body {
+	background: url('/img/bg-main.png') repeat;
+}
+
+/* Admin nav and authentication */
+
+.admin-nav-wrap {
+	background: #474265;
+	padding: 5px 0px;
+	border-bottom: 1px solid rgba(0,0,0,0.1);
+	color: #fff;
+}
+
+#login-buttons-google {
+	border-radius: 0px;
+}
+
+
+
+/* Invitation lookup */
+.login-wrap {
+	background: #696590;
+	text-align: center;
+	color: #fff;
+}
+
+.login-wrap h1 {
+	color: #fff;
+}
+
+.login-wrap h3 {
+	color: #fff;
+	font-size: 20px;
+	line-height: 1.5em;
+	font-weight: normal;
+}
+
+#invitation_id {
+	font-size: 30px;
+	width: 100%;
+	text-align: center;
+	border-radius: 0px;
+	border: 4px solid rgba(0,0,0,0.01);
+}
+
+#invitation_id:hover {
+		border: 4px solid #474265;
+
+}
