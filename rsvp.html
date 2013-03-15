@@ -1,5 +1,9 @@
 <head>
   <title>rsvp</title>
+  <link href='http://fonts.googleapis.com/css?family=Old+Standard+TT:400' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+
+
 </head>
 
 <body>
@@ -13,9 +17,29 @@
   </div>
 </div>
 
-{{#if true}}
-{{> openInvitation}}
-{{/if}}
+
+
+
+
+
+<div class="login-wrap">
+  <div class="row">
+
+  <section class id="login_main">
+
+  {{#if currentUser}}
+    {{> partyCreation}}
+
+    {{else}}
+    {{> openInvitation}}
+  {{/if}}
+ 
+  </section>
+  </div>
+  </div>
+
+
+
 
 <div class="content-main-wrap">
   <div class="row">
@@ -24,19 +48,15 @@
 
 
       {{#if currentUser}}
-      <h1>Admin</h1>
-
       <h2>Parties</h2>
       {{> partyList}}
 
-
-      <h2>Create a party</h2>
-      {{> partyCreation}}
       {{else}}
-      Please login...
-      {{/if}}
+      <p class="large-12">
+      Please login to view and edit your invitation information.
+      </p>
 
-      Test Test Test Test
+      {{/if}}
     </section>
 
   </div>
@@ -44,20 +64,31 @@
 </body>
 
 <template name="partyList">
-  <ul>
+  <ul class="party-container">
     {{#each parties}}
-    <li class="party-header">{{name}}</li>
+
     {{#if showDetailsFor name}}
+
+      <li class="party-header current">{{name}}
       {{> partyDetails}}
+      </li>
+
+    {{else}}
+      <li class="party-header">{{name}}</li>
+    
     {{/if}}
+    
+
     {{/each}}
   </ul>
 </template>
 
 <template name="partyCreation">
   <form id="party-creation">
-    <label>Name:
-      <input type="text" class="party-name"></input>
+    <label>
+      <h1>Create a Party</h1>
+      <h3>Please specify a name for the party</h3>
+      <input type="text" class="party-name" id="invitation_id"></input>
     </label>
     <button class="create">Create Party</button>
   </form>
@@ -68,10 +99,11 @@
   <div class="row">
 
   <section class id="login_main">
-
-  <h1>Welcome</h1>
-  <h3>Please specify your invitation code to edit your invitation</h3>
-  <input type="text" id="invitation_id">
+  <label>
+    <h1>Welcome</h1>
+    <h3>Please specify your invitation code to edit your invitation</h3>
+    <input type="text" id="invitation_id">
+  </label>
   <button class="button">Go</button>
  
   </section>
@@ -80,11 +112,9 @@
 </template>
 
 <template name="partyDetails">
-  <section class="details">
-    <ul>
+    <ul class="details">
       <li>Name: {{name}}</li>
     </ul>
-  </section>
 </template>
 
 <template name="invitationList">
