@@ -5,23 +5,25 @@
 <body>
 <h1>Admin</h1>
 
+<h2>Parties</h2>
 {{> partyList}}
+<hr />
+{{> partyCreation}}
 </body>
 
 <template name="partyList">
-<h2>Parties</h2>
-<ul>
-  {{#each parties}}
-  <li>{{name}}</li>
-  {{/each}}
-</ul>
+  <ul>
+    {{#each parties}}
+    <li>{{name}}</li>
+    {{/each}}
+  </ul>
+</template>
 
-<hr />
-
-<form id="party-creation">
-  <label>Name:
-    <input type="text"></input>
-  </label>
-  <button class="create">Create Party</button>
-</form>
+<template name="partyCreation">
+  <form id="party-creation">
+    <label>Name:
+      <input type="text" class="party-name"></input>
+    </label>
+    <button class="create">Create Party</button>
+  </form>
 </template>
