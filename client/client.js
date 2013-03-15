@@ -67,7 +67,9 @@ Template.invitationDetails.events({
   },
 
   "blur .number-of-guests": function(event, template) {
-    console.log("number of guests blurred", this)
+    var numberOfGuests = event.target.value
+    Meteor.call("updateInvitationNumberOfGuests", Session.get("invitationCode"), numberOfGuests)
+    return false
   }
 })
 

@@ -31,6 +31,13 @@ Meteor.methods({
                        })
   },
 
+  updateInvitationNumberOfGuests: function(invitationCode, numberOfGuests) {
+    Invitations.update({invitationCode: invitationCode},
+                       {
+                         $set: {numberOfGuests: numberOfGuests}
+                       })
+  },
+
   generateUUID: function() {
     var s4 = function() {
       return Math.floor((1 + Math.random()) * 0x10000)
