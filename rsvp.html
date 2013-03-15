@@ -1,0 +1,27 @@
+<head>
+  <title>rsvp</title>
+</head>
+
+<body>
+<h1>Admin</h1>
+
+{{> partyList}}
+</body>
+
+<template name="partyList">
+<h2>Parties</h2>
+<ul>
+  {{#each parties}}
+  <li>{{name}}</li>
+  {{/each}}
+</ul>
+
+<hr />
+
+<form id="party-creation">
+  <label>Name:
+    <input type="text"></input>
+  </label>
+  <button class="create">Create Party</button>
+</form>
+</template>
