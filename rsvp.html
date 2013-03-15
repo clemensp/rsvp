@@ -5,48 +5,51 @@
 <body>
 
 <div class="admin-nav-wrap">
-<div class="row">
+  <div class="row">
 
-<section class="small-12 push-10" id="admin_nav">
-{{loginButtons align="right"}}
-</section>
-</div>
+    <section class="small-12 push-10" id="admin_nav">
+      {{loginButtons align="right"}}
+    </section>
+  </div>
 </div>
 
 {{#if true}}
 {{> openInvitation}}
 {{/if}}
 
-
-
 <div class="content-main-wrap">
-<div class="row">
+  <div class="row">
 
-<section class id="content_main">
+    <section class id="content_main">
 
 
-{{#if currentUser}}
-  <h1>Admin</h1>
+      {{#if currentUser}}
+      <h1>Admin</h1>
 
-  <h2>Parties</h2>
-  {{> partyList}}
-  <hr />
-  {{> partyCreation}}
-{{else}}
-  Please login...
-{{/if}}
+      <h2>Parties</h2>
+      {{> partyList}}
 
-Test Test Test Test
-</section>
 
-</div>
+      <h2>Create a party</h2>
+      {{> partyCreation}}
+      {{else}}
+      Please login...
+      {{/if}}
+
+      Test Test Test Test
+    </section>
+
+  </div>
 </div>
 </body>
 
 <template name="partyList">
   <ul>
     {{#each parties}}
-    <li>{{name}}</li>
+    <li class="party-header">{{name}}</li>
+    {{#if showDetailsFor name}}
+      {{> partyDetails}}
+    {{/if}}
     {{/each}}
   </ul>
 </template>
@@ -60,9 +63,7 @@ Test Test Test Test
   </form>
 </template>
 
-
 <template name="openInvitation">
-
   <div class="login-wrap">
   <div class="row">
 
@@ -76,5 +77,32 @@ Test Test Test Test
   </section>
   </div>
   </div>
+</template>
 
+<template name="partyDetails">
+  <section class="details">
+    <ul>
+      <li>Name: {{name}}</li>
+    </ul>
+  </section>
+</template>
+
+<template name="invitationList">
+  <ul>
+    {{#each invitations}}
+    <li>{{inviteeName}}</li>
+    <li>{{inviteCode}}</li>
+    <li>{{numberOfGuests}}</li>
+    <li>{{party}}</li>
+    {{/each}}
+  </ul>
+</template>
+
+<template name="invitationCreation">
+  <form id="invitation-creation">
+    <label>Name:
+      <input type="text" class="invitee-name"></input>
+    </label>
+    <button class="create">Create invitation</button>
+  </form>
 </template>
