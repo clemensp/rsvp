@@ -215,3 +215,16 @@ button {
 button:hover {
 	background: #e98090;
 	}
+
+#invitee_name_2 {
+	font-size: 40px;
+		margin-bottom: 10px;
+		color: #4a4568;
+		margin-top: 20px;
+
+font-family: 'Montserrat', sans-serif;
+		color: rgba(0,0,0,0.4);
+		border-radius: none;
+		}
+
+#invitee_message

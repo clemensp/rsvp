@@ -57,13 +57,13 @@
 
 <template name="invitationDetails">
   {{#with invitation}}
-    <p>
+    <h4 id="invitee_name_2">
       Hello {{inviteeName}}
-    </p>
-    <p>
+    </h4>
+    <p id="invitee_message">
       You're invited to {{partyName}}!!
     </p>
-    <p>
+    <p id="invitee_message">
       Will you be attending?
       <select class="invitation-status">
         <option value="pending" {{selected invitationStatus "pending"}}>Undecided</option>
@@ -71,7 +71,7 @@
         <option value="no" {{selected invitationStatus "no"}}>No</option>
       </select>
     </p>
-    <p>
+    <p id="invitee_message">
       How many guests are you bringing?
       <input type="text" class="number-of-guests" value={{numberOfGuests}}></input>
     </p>
