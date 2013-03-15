@@ -11,12 +11,26 @@ body {
 	padding: 5px 0px;
 	border-bottom: 1px solid rgba(0,0,0,0.1);
 	color: #fff;
+	position: fixed;
+	top: 0px;
+	width: 100%;
+	min-width: 900px;
+	z-index: 10;
 }
 
 #login-buttons-google {
 	border-radius: 0px;
 }
 
+#login-name-link, #login-sign-in-link {
+
+	font-weight: normal;
+	font-size: 12px;
+		font-family: 'Montserrat', sans-serif;
+text-decoration: none;
+color: #e98090;
+text-align: right;
+}
 
 
 /* Invitation lookup */
@@ -33,7 +47,7 @@ body {
 	font-weight: normal;
 	font-size: 100px;
 	margin-bottom: 10px;
-	margin-top: 20px;
+	margin-top: 40px;
 	line-height: 1.1em;
 }
 
@@ -63,12 +77,24 @@ body {
 
 /* Content */
 
+#current_parties {
+	color: rgba(0,0,0,0.1);
+	font-family: 'Montserrat', sans-serif;
+	text-transform: uppercase;
+	font-weight: normal;
+	font-size: 90px;
+	margin-bottom: 10px;
+	margin-top: 20px;
+	line-height: 1.1em;
+	text-align: center;
+}
+
+
 .party-container {
 	padding: 20px;
 }
 
 .party-header {
-	font-size: 30px;
 	list-style: none;
 	width: 100%;
 	border-top: 5px solid rgba(0,0,0,0.1);
@@ -77,6 +103,15 @@ body {
 	padding: 10px;
 	margin-bottom: 20px;
 	font-weight: bold;
+	font-family: 'Montserrat', sans-serif;
+
+}
+
+.party-header h3 {
+		font-size: 30px;
+		margin-bottom: 10px;
+		color: #4a4568;
+
 }
 
 .party-header:hover, .party-header.current {
@@ -86,4 +121,97 @@ body {
 
 .details {
 	background: #fff;
+	list-style: none;
+	
+	font-family: Cambria, serif;
+	font-size: 22px;
+	font-style: italic;
+	font-weight: normal;
+	text-transform: normal;
+	letter-spacing: normal;
+	line-height: 1.5em;
+	margin-bottom: 10px;
+
+	color: rgba(0,0,0,0.65);
 }
+
+
+.invitation-list {
+	display: block;
+	overflow: hidden;
+	border-bottom: 1px solid rgba(0,0,0,0.1);
+	font-size: 18px;
+}
+
+.invitation-list:last-child {
+	border: none;
+}
+
+.invitation-list-header {
+	display: block;
+	overflow: hidden;
+	border-bottom: 1px solid rgba(0,0,0,0.5);
+	font-size: 12px;
+	text-transform: uppercase;
+	color: rgba(0,0,0,0.5);
+}
+
+#invitation-creation {
+	margin-top: 16px;
+	padding-top: 10px;
+	padding-left: 24px;
+	border-top: 1px dotted rgba(0,0,0,0);
+
+}
+
+#invitation_label {
+	font-size: 12px;
+	text-transform: uppercase;
+	color: rgba(0,0,0,0.5);
+	font-weight: bold;
+}
+
+#invitee_name {
+	border-radius: 0px;
+		font-size: 20px;
+		padding: 10px;
+		border: 4px solid rgba(0, 0, 0, 0.1);
+
+}
+
+#invitee_name:hover {
+	border: 4px solid rgba(241, 140, 157, 1);
+
+}
+
+
+
+.invitation-list li, .invitation-list-header li {
+	float: left;
+	list-style: none;
+	width: 33%;
+	padding: 5px;
+	font-weight: normal;
+	font-weight: bold;
+}
+
+.invitation-list-header li {
+	font-weight: bold;
+}
+
+.invitation-list li:last-child {
+	width: 100%;
+	font-weight: normal;
+	color: rgba(0,0,0,0.6);
+}
+
+button {
+	background: #a64856;
+	border: 1px solid rgba(0,0,0,0.1);
+	font-weight: normal;
+	border-radius: 2px;
+}
+
+button:hover {
+	background: #e98090;
+	}

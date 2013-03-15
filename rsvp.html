@@ -38,13 +38,8 @@
 
 
       {{#if currentUser}}
-      <h2>Parties</h2>
+      <h1 id="current_parties">View your Parties</h1>
       {{> partyList}}
-
-      {{else}}
-      <p class="large-12">
-      Please login to view and edit your invitation information.
-      </p>
 
       {{/if}}
     </section>
@@ -59,12 +54,12 @@
 
     {{#if showDetailsFor name}}
 
-      <li class="party-header current">{{name}}
+      <li class="party-header current"><h3>{{name}}</h3>
       {{> partyDetails}}
       </li>
 
     {{else}}
-      <li class="party-header">{{name}}</li>
+      <li class="party-header"><h3>{{name}}</h3></li>
     
     {{/if}}
     
@@ -94,7 +89,7 @@
     <h3>Please specify your invitation code to edit your invitation</h3>
     <input type="text" id="invitation_id">
   </label>
-  <button class="button">Go</button>
+  <button>Go</button>
  
   </section>
   </div>
@@ -106,27 +101,33 @@
       <li>Name: {{name}}</li>
     </ul>
 
-    <h3>Invitation List</h3>
     {{> invitationList}}
     {{> invitationCreation}}
   </section>
 </template>
 
 <template name="invitationList">
-  <ul>
+
+    <ul class="invitation-list-header">
+    <li>Invitation Name</li>
+    <li>Number of Guests</li>
+    <li>Invitation Status</li>
+    </ul>
+
     {{#each invitations}}
+    <ul class="invitation-list">
     <li>{{inviteeName}}</li>
-    <li>{{invitationCode}}</li>
     <li>{{numberOfGuests}}</li>
     <li>{{invitationStatus}}</li>
+    <li>Invite code: {{invitationCode}}</li>
+    </ul>
     {{/each}}
-  </ul>
 </template>
 
 <template name="invitationCreation">
   <form id="invitation-creation">
-    <label>Invitee Name:
-      <input type="text" class="invitee-name"></input>
+    <label><span id="invitation_label">Add an Invitee to this party. Additional information may be specified later.</span>
+      <input type="text" class="invitee-name" id="invitee_name"></input>
     </label>
     <button class="create">Create invitation</button>
   </form>
